@@ -1,0 +1,6 @@
+{
+  "name": "18 aana — Clothing & Lifestyle",
+  "description": "Bangladeshi clothing and lifestyle storefront featuring festive punjabis, Jamdani sharees, kurtis, winter specials, checkout with Dhaka/nationwide delivery, and an admin management dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>18 aana – Clothing and lifestyle</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff;
+  --fg:#1a0508;
+  --brand:#800020;
+  --deep:#4a0012;
+  --on:#ffffff;
+  --tint:#fcf8f8;
+  --mid:#b3002d;
+  --line:#e8d5d8;
+  --mute:#7a5c61;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#120204;
+    --fg:#fcf8f8;
+    --brand:#800020;
+    --deep:#2b000a;
+    --tint:#1f0509;
+    --mid:#e63956;
+    --line:#3d141a;
+    --mute:#b58a90;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#120204;
+  --fg:#fcf8f8;
+  --brand:#800020;
+  --deep:#2b000a;
+  --tint:#1f0509;
+  --mid:#e63956;
+  --line:#3d141a;
+  --mute:#b58a90;
+}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.6 "Hind Siliguri",system-ui,sans-serif}
+h1,h2,h3,.serif{font-family:"DM Serif Display",Georgia,serif;font-weight:400;margin:0;line-height:1.08}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--mid);outline-offset:2px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.top{background:var(--brand);color:var(--on);font-size:13.5px;padding:7px 0}
+.top .wrap{display:flex;justify-content:space-between;gap:16px}
+@media(max-width:700px){.top .wrap span:last-child{display:none}.top .wrap{justify-content:center}}
+header{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:12px 0}
+.search{width:min(260px,100%);border:0;border-bottom:1.5px solid var(--fg);background:transparent;color:var(--fg);padding:6px 2px;font:inherit}
+.search::placeholder{color:var(--mute)}
+.logo{display:flex;align-items:center;gap:10px}
+.logo .w{font:400 32px/1 "DM Serif Display",serif;letter-spacing:-.5px}
+.logo .w em{font-style:italic;color:var(--mid)}
+.icons{display:flex;gap:6px;justify-content:flex-end;align-items:center}
+.ib{background:none;border:0;padding:8px 10px;font-weight:500;position:relative}
+.ib b{background:var(--brand);color:var(--on);border-radius:999px;font-size:12px;padding:1px 7px;margin-left:5px}
+@media(max-width:800px){.bar{grid-template-columns:auto 1fr}.search,.acc{display:none}.logo .w{font-size:26px}}
+nav ul{list-style:none;margin:0;padding:0;display:flex;justify-content:center;gap:6px;overflow-x:auto;scrollbar-width:none}
+nav li{flex:none}
+nav li>a{display:block;padding:11px 16px;font-weight:500;font-size:15px;position:relative;white-space:nowrap}
+nav li>a::after{content:"";position:absolute;left:16px;right:16px;bottom:5px;height:2px;background:var(--fg);transform:scaleX(0);transition:transform .2s}
+nav li:hover>a::after,nav li:focus-within>a::after{transform:scaleX(1)}
+@media(max-width:900px){nav ul{justify-content:flex-start}}
+.mega{display:none;position:absolute;left:0;right:0;top:100%;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 18px 30px rgba(128,0,32,.1)}
+.mega .wrap{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:30px;padding:28px 24px}
+header nav{position:static}header .wrap.n{position:static}
+nav li:hover .mega,nav li:focus-within .mega{display:block}
+.mega h4{margin:0 0 8px;font:400 22px "DM Serif Display",serif}
+.mega ul{display:block}.mega ul a{display:block;padding:4px 0;color:var(--mute)}.mega ul a:hover{color:var(--fg)}
+.mega .promo{border-radius:6px;min-height:230px;padding:18px;display:flex;align-items:flex-end;color:var(--on);font:400 26px "DM Serif Display",serif;background-size:cover;background-position:center}
+@media(max-width:900px){.mega{display:none!important}}
+.btn{display:inline-block;padding:13px 28px;border:1.5px solid currentColor;font-weight:500;border-radius:2px;background:none;transition:background .2s,color .2s}
+.btn.fill{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn:hover{background:var(--fg);color:var(--bg)}.btn.fill:hover{background:transparent;color:var(--fg)}
+/* hero */
+.hero{background:var(--brand);color:var(--on);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;min-height:560px;padding-top:50px;padding-bottom:50px}
+.hero h1{font-size:clamp(44px,6.4vw,92px);letter-spacing:-2px}
+.hero h1 em{font-style:italic;color:#ffccd5}
+.hero p{max-width:44ch;opacity:.85;margin:18px 0 28px;font-size:18px}
+.hero .btn{color:var(--on)}.hero .btn.fill{background:var(--on);color:var(--brand);border-color:var(--on)}.hero .btn.fill:hover{background:transparent;color:var(--on)}
+.hero .btn:hover{background:var(--on);color:var(--brand)}
+.stack{position:relative;height:480px}
+.post{position:absolute;width:46%;aspect-ratio:3/4;border-radius:3px;box-shadow:0 20px 40px rgba(0,0,0,.35);display:flex;align-items:flex-end;background-size:cover;background-position:center}
+.post span{background:var(--bg);color:var(--fg);margin:10px;padding:5px 10px;font-size:14px;font-weight:500}
+.post:nth-child(1){left:0;top:30px;transform:rotate(-4deg)}.post:nth-child(2){left:27%;top:0;z-index:2;width:48%}.post:nth-child(3){right:0;top:70px;transform:rotate(4deg)}
+@media(max-width:850px){.hero .wrap{grid-template-columns:1fr;min-height:0}.stack{height:340px}}
+section{padding:56px 0}
+.sh{display:flex;justify-content:space-between;align-items:end;margin-bottom:26px;gap:16px}
+.sh h2{font-size:clamp(30px,4vw,46px);letter-spacing:-1px}
+.sh a{border-bottom:1.5px solid var(--fg);font-weight:500}
+/* category circles */
+.cats{display:flex;gap:26px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+.cat{flex:none;text-align:center;width:104px}
+.cat div{width:104px;height:104px;border-radius:50%;border:3px solid var(--bg);outline:1.5px solid var(--line);transition:transform .2s;background-size:cover;background-position:center}
+.cat:hover div{transform:scale(1.06)}
+.cat span{display:block;margin-top:10px;font-weight:500;font-size:14.5px;line-height:1.25}
+/* department tiles */
+.depts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.dept{position:relative;min-height:520px;border-radius:3px;overflow:hidden;color:var(--on);display:flex;flex-direction:column;justify-content:flex-end;padding:30px;background-size:cover;background-position:center}
+.dept::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(43,0,10,.9))}
+.dept>*{position:relative;z-index:1}
+.dept h3{font-size:46px}
+.dept ul{list-style:none;padding:0;margin:12px 0 18px;display:flex;flex-wrap:wrap;gap:4px 16px;opacity:.9}
+.dept .go{align-self:flex-start;background:var(--on);color:var(--brand);padding:10px 22px;font-weight:500}
+@media(max-width:850px){.depts{grid-template-columns:1fr}.dept{min-height:380px}}
+/* winter */
+.win{background:var(--tint)}
+.win .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:40px;align-items:center}
+.win h2{font-size:clamp(40px,5.5vw,72px);letter-spacing:-2px}
+.win p{color:var(--mute);max-width:40ch;margin:14px 0 24px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.three a{aspect-ratio:3/4;display:flex;align-items:flex-end;border-radius:3px;background-size:cover;background-position:center}
+.three span{background:var(--bg);margin:10px;padding:5px 12px;font-weight:500}
+@media(max-width:850px){.win .wrap{grid-template-columns:1fr}}
+/* products */
+.tabs{display:flex;gap:6px;margin-bottom:22px;flex-wrap:wrap}
+.tabs button{background:none;border:1.5px solid var(--line);padding:7px 20px;border-radius:999px;font-weight:500}
+.tabs button.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 18px}
+@media(max-width:950px){.grid{grid-template-columns:repeat(2,1fr)}}
+.prod .img{position:relative;aspect-ratio:3/4;border-radius:3px;overflow:hidden;background-size:cover;background-position:center}
+.prod .tag{position:absolute;left:10px;top:10px;background:var(--bg);color:var(--fg);font-size:12.5px;font-weight:600;padding:2px 10px}
+.heart{position:absolute;right:8px;top:8px;background:var(--bg);border:0;border-radius:50%;width:34px;height:34px;font-size:17px;line-height:1}
+.heart.on{background:var(--brand);color:var(--on)}
+.qa{position:absolute;left:0;right:0;bottom:0;background:var(--fg);color:var(--bg);border:0;padding:12px;font-weight:500;transform:translateY(100%);transition:transform .2s}
+.prod:hover .qa,.qa:focus-visible{transform:none}
+@media(hover:none){.qa{transform:none;position:static;width:100%}}
+.prod h3{font:500 16px "Hind Siliguri",sans-serif;margin-top:10px}
+.prod small{color:var(--mute)}.prod b{display:block;font-weight:600}
+.prod s{color:var(--mute);font-weight:400;margin-left:6px}
+/* trust */
+.trust{border-block:1px solid var(--line);padding:26px 0}
+.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.trust b{display:block;font-size:17px}.trust span{color:var(--mute);font-size:14.5px}
+@media(max-width:800px){.trust .wrap{grid-template-columns:1fr 1fr}}
+/* more */
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tile{aspect-ratio:1/1;border-radius:3px;display:flex;align-items:flex-end;padding:22px;position:relative;color:var(--on);background-size:cover;background-position:center;overflow:hidden}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(43,0,10,.85));border-radius:3px}
+.tile>*{position:relative;z-index:1}.tile h3{font-size:32px}.tile span{display:block;opacity:.85;font-size:14.5px}
+@media(max-width:800px){.trio{grid-template-columns:1fr}}
+/* feedback */
+.fb{background:var(--brand);color:var(--on)}
+.fb .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.fb h2{font-size:clamp(32px,4vw,52px);letter-spacing:-1px;margin-bottom:12px}
+.quote{border-left:2px solid rgba(255,255,255,.4);padding:4px 0 4px 16px;margin-top:20px;opacity:.9}
+.quote small{display:block;opacity:.7}
+.fb form{display:grid;gap:12px}
+.fb input,.fb textarea,.fb select{font:inherit;width:100%;border:1px solid rgba(255,255,255,.35);background:transparent;color:var(--on);padding:11px 12px;border-radius:2px}
+.fb option{color:var(--fg);background:var(--bg)}.fb ::placeholder{color:rgba(255,255,255,.6)}
+.stars{display:flex;gap:2px}.stars button{background:none;border:0;font-size:28px;color:rgba(255,255,255,.35);padding:0 2px}.stars button.on{color:var(--on)}
+.fb .btn{color:var(--on)}.fb .btn.fill{background:var(--on);color:var(--brand)}
+.ok{min-height:24px;font-weight:500}
+@media(max-width:850px){.fb .wrap{grid-template-columns:1fr}}
+footer{background:var(--deep);color:var(--on);padding:50px 0 100px}
+footer .wrap{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px}
+footer p,footer a{opacity:.75;display:block;padding:2px 0;font-size:15px}footer a:hover{opacity:1}
+footer h4{margin:0 0 8px;font:400 20px "DM Serif Display",serif}
+.legal{opacity:.6;font-size:13.5px;margin-top:30px;grid-column:1/-1;border-top:1px solid rgba(255,255,255,.2);padding-top:16px}
+@media(max-width:800px){footer .wrap{grid-template-columns:1fr 1fr}}
+/* drawer + chat */
+.veil{position:fixed;inset:0;background:rgba(43,0,10,.55);z-index:50;display:none}.veil.show{display:block}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--bg);z-index:51;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column;padding:calc(22px + env(safe-area-inset-top,0px)) 24px calc(22px + env(safe-area-inset-bottom,0px))}
+.drawer.show{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px}.dh h2{font-size:30px}
+.items{flex:1;overflow:auto;border-top:1px solid var(--line)}
+.item{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.item i{width:52px;height:66px;border-radius:2px;flex:none;background-size:cover;background-position:center}.item div{flex:1}.item small{color:var(--mute)}
+.empty{color:var(--mute);padding:30px 0}
+.tot{display:flex;justify-content:space-between;font-size:19px;font-weight:600;padding:16px 0}
+.x{background:none;border:0;font-size:20px}
+.bot{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40}
+.fab{background:var(--brand);color:var(--on);border:0;border-radius:999px;padding:13px 22px;font-weight:500;box-shadow:0 10px 28px rgba(128,0,32,.4)}
+.chat{display:none;width:min(350px,calc(100vw - 36px));background:var(--bg);border:1px solid var(--line);border-radius:10px;box-shadow:0 18px 44px rgba(128,0,32,.25);margin-bottom:10px;overflow:hidden}
+.chat.show{display:block}
+.chat .ct{background:var(--brand);color:var(--on);padding:13px 16px;font-weight:500}
+.msgs{height:230px;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+.m{max-width:85%;padding:8px 12px;border-radius:12px;font-size:15px}.m.b{background:var(--tint)}.m.u{background:var(--brand);color:var(--on);align-self:flex-end}
+.quick{display:flex;gap:6px;flex-wrap:wrap;padding:0 12px 8px}.quick button{background:none;border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:14px}
+.chat form{display:flex;gap:6px;padding:10px;border-top:1px solid var(--line)}
+.chat input{flex:1;font:inherit;border:1px solid var(--line);background:var(--bg);color:var(--fg);padding:8px 10px;border-radius:4px;min-width:0}
+.chat form button{background:var(--brand);color:var(--on);border:0;border-radius:4px;padding:0 14px}
+.three a,.cat div,.mega .promo,.item i{position:relative;overflow:hidden}
+.post{overflow:hidden}.post span,.three span{position:relative}
+</style>
+</head>
+<body>
+<div class="top"><div class="wrap"><span>Free delivery in Dhaka on orders above ৳2,500</span><span>Cash on delivery · 7-day easy returns</span></div></div>
+
+<header>
+ <div class="wrap bar">
+  <input class="search" type="search" placeholder="Search punjabi, sharee, shawl" aria-label="Search">
+  <a class="logo" href="#top" aria-label="18 aana home"><svg class="mk" width="44" height="44" viewBox="0 0 420 420" aria-hidden="true"></svg><span class="w">18 <em>aana</em></span></a>
+  <div class="icons"><button class="ib acc">Account</button><button class="ib acc">Wishlist<b id="wc">0</b></button><button class="ib" id="openCart">Cart<b id="count">0</b></button></div>
+ </div>
+ <nav aria-label="Main"><div class="wrap n"><ul id="nav"></ul></div></nav>
+</header>
+
+<main id="top">
+ <section class="hero" style="padding:0"><div class="wrap">
+  <div>
+   <h1>Sixteen aana is whole. <em>We add two.</em></h1>
+   <p>Festive and everyday clothing for men, women and kids. New winter pieces are in.</p>
+   <a class="btn fill" href="#depts">Shop the collection</a> <a class="btn" href="#winter">Winter special</a>
+  </div>
+  <div class="stack" aria-hidden="true">
+   <div class="post" data-img="sharee"><span>Jamdani Sharee</span></div>
+   <div class="post" data-img="punjabi"><span>Cotton Punjabi</span></div>
+   <div class="post" data-img="fatua"><span>Kids Fatua</span></div>
+  </div>
+ </div></section>
+
+ <section><div class="wrap"><div class="sh"><h2>Shop by category</h2></div><div class="cats" id="cats"></div></div></section>
+
+ <section id="depts" style="padding-top:10px"><div class="wrap"><div class="depts" id="depts2"></div></div></section>
+
+ <section class="win" id="winter"><div class="wrap">
+  <div><h2>Winter special</h2><p>Shawls, flannel shirts and denim for the cold weeks ahead. Limited sizes, so order early.</p><a class="btn fill" href="#new">Shop winter</a></div>
+  <div class="three">
+   <a data-img="shawl" href="#new"><span>Shawl</span></a>
+   <a data-img="flannel" href="#new"><span>Flannel Shirt</span></a>
+   <a data-img="denim" href="#new"><span>Denim</span></a>
+  </div>
+ </div></section>
+
+ <section id="new"><div class="wrap">
+  <div class="sh"><h2>New and trending</h2></div>
+  <div class="tabs" id="tabs"></div>
+  <div class="grid" id="grid"></div>
+ </div></section>
+
+ <div class="trust"><div class="wrap">
+  <div><b>Free delivery</b><span>In Dhaka over ৳2,500</span></div>
+  <div><b>7-day returns</b><span>Unworn items, easy exchange</span></div>
+  <div><b>Cash on delivery</b><span>Or bKash, Nagad, cards</span></div>
+  <div><b>Chat support</b><span>Ask us anything, daily</span></div>
+ </div></div>
+
+ <section id="more"><div class="wrap">
+  <div class="sh"><h2>Finish the look</h2></div>
+  <div class="trio">
+   <a class="tile" data-img="bags" href="#"><div><h3>Bags</h3><span>Totes, handbags, backpacks</span></div></a>
+   <a class="tile" data-img="jewelry" href="#"><div><h3>Jewellery &amp; Accessories</h3><span>Earrings, bangles, hair pieces</span></div></a>
+   <a class="tile" data-img="homedecor" href="#"><div><h3>Home Decor</h3><span>Nakshi cushions, throws, wall pieces</span></div></a>
+  </div>
+ </div></section>
+
+ <section class="fb" id="feedback"><div class="wrap">
+  <div><h2>Your feedback shapes our shelves</h2><p style="opacity:.85">Rate your order or suggest a product. We read every message and reply within two days.</p>
+   <div class="quote">“The punjabi fit perfectly and arrived in two days.”<small>Rafi, Mirpur</small></div>
+   <div class="quote">“Lovely shawl, the color is exactly like the photo.”<small>Nusrat, Chattogram</small></div></div>
+  <form id="fbform">
+   <div class="stars" id="stars" role="group" aria-label="Rating"></div>
+   <input placeholder="Your name" required>
+   <select aria-label="Topic"><option>Product quality</option><option>Delivery</option><option>Size and fit</option><option>Suggestion</option></select>
+   <textarea rows="3" placeholder="Your message" required></textarea>
+   <button class="btn fill" type="submit">Send feedback</button>
+   <div class="ok" id="ok" role="status"></div>
+  </form>
+ </div></section>
+</main>
+
+<footer><div class="wrap">
+ <div><div class="serif" style="font-size:32px">18 <i>aana</i></div><p>Clothing and lifestyle for the whole family. Placeholder address: Dhaka, Bangladesh.</p></div>
+ <div><h4>Shop</h4><a href="#depts">Men</a><a href="#depts">Women</a><a href="#depts">Kids</a><a href="#winter">Winter Special</a></div>
+ <div><h4>More</h4><a href="#more">Bags</a><a href="#more">Jewellery &amp; Accessories</a><a href="#more">Home Decor</a></div>
+ <div><h4>Help</h4><a href="#feedback">Feedback</a><a href="#">Delivery</a><a href="#">Returns</a></div>
+ <div class="legal">© 2026 18 aana. Design mockup with real image placeholders.</div>
+</div></footer>
+
+<div class="veil" id="veil"></div>
+<aside class="drawer" id="drawer" aria-label="Cart" aria-hidden="true">
+ <div class="dh"><h2>Your cart</h2><button class="x" id="closeCart" aria-label="Close cart">✕</button></div>
+ <div class="items" id="items"></div>
+ <div class="tot"><span>Total</span><span id="total">৳0</span></div>
+ <button class="btn fill" id="checkout">Checkout</button>
+</aside>
+
+<div class="bot">
+ <div class="chat" id="chat">
+  <div class="ct">18 aana assistant</div>
+  <div class="msgs" id="msgs"><div class="m b">Hi! Ask me about sizes, delivery, returns or winter items.</div></div>
+  <div class="quick"><button>Delivery time</button><button>Return policy</button><button>Size help</button></div>
+  <form id="cf"><input id="ci" placeholder="Type a question" aria-label="Message"><button>Send</button></form>
+ </div>
+ <button class="fab" id="fab">Chat with us</button>
+</div>
+
+<script>
+function mark(el){
+  var s='';
+  for(var i=0;i<18;i++){
+    var a=(i*20-90)*Math.PI/180,c=Math.cos(a),n=Math.sin(a),x=i>=16;
+    s+='<line x1="'+(210+148*c).toFixed(1)+'" y1="'+(210+148*n).toFixed(1)+'" x2="'+(210+200*c).toFixed(1)+'" y2="'+(210+200*n).toFixed(1)+'" stroke="'+(x?'var(--mid)':'var(--fg)')+'" stroke-width="'+(x?24:18)+'" stroke-linecap="round"/>';
+  }
+  s+='<circle cx="210" cy="210" r="126" fill="var(--brand)"/><text x="210" y="240" text-anchor="middle" font-family="DM Serif Display,serif" font-size="112" fill="var(--on)">18</text><text x="210" y="294" text-anchor="middle" font-family="DM Serif Display,serif" font-style="italic" font-size="44" fill="#ffccd5">aana</text>';
+  el.innerHTML=s;
+}
+[].forEach.call(document.querySelectorAll('.mk'),mark);
+
+var IMGS = {
+  punjabi: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=600&q=80',
+  sharee: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80',
+  kurti: 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=600&q=80',
+  threepiece: 'https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=600&q=80',
+  fatua: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=600&q=80',
+  shirt: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=80',
+  salwar: 'https://images.unsplash.com/photo-1583391733975-d227e997f620?auto=format&fit=crop&w=600&q=80',
+  shawl: 'https://images.unsplash.com/photo-1608234807905-4466023792f5?auto=format&fit=crop&w=600&q=80',
+  flannel: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=600&q=80',
+  denim: 'https://images.unsplash.com/photo-1542272604-780c36856f66?auto=format&fit=crop&w=600&q=80',
+  bags: 'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=600&q=80',
+  jewelry: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80',
+  homedecor: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80',
+  lungi: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80',
+  men_dept: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80',
+  women_dept: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
+  kids_dept: 'https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=80'
+};
+
+function hydrate(){
+  [].forEach.call(document.querySelectorAll('[data-img]'), function(e){
+    var k = e.dataset.img;
+    if(IMGS[k]) {
+      e.style.backgroundImage = 'url("' + IMGS[k] + '")';
+    }
+  });
+}
+
+var M={
+  Men:["Punjabi","Fatua","T-shirt","Casual Shirt","Pant","Lungi"],
+  Women:["Sharee","Kurti","Tops","Three-piece","Salwar","Skirt","Scarves"],
+  Kids:["Boys","Girls"],
+  "Winter Special":["Shawl","Flannel Shirt","Denim"]
+};
+
+var nav=document.getElementById('nav'),h='';
+Object.keys(M).forEach(function(k,j){
+  var L=M[k],half=Math.ceil(L.length/2);
+  function ul(a){return '<ul>'+a.map(function(x){return '<li><a href="#">'+x+'</a></li>'}).join('')+'</ul>'}
+  var promoImg = ['punjabi','sharee','fatua','shawl'][j];
+  h+='<li><a href="#depts">'+k+'</a><div class="mega"><div class="wrap"><div><h4>'+k+'</h4>'+ul(L.slice(0,half))+'</div><div><h4>&nbsp;</h4>'+ul(L.slice(half))+'</div><a class="promo" data-img="'+promoImg+'" href="#new"><span style="position:relative;background:var(--bg);padding:2px 12px;font-size:20px;border-radius:2px;">New in '+k.toLowerCase()+'</span></a></div></div></li>';
+});
+h+='<li><a href="#more">Bags</a></li><li><a href="#more">Jewellery &amp; Accessories</a></li><li><a href="#more">Home Decor</a></li><li><a href="#feedback">Feedback</a></li>';
+nav.innerHTML=h;
+
+var cats=[
+  {name:"Punjabi", key:"punjabi"},
+  {name:"Sharee", key:"sharee"},
+  {name:"Kurti", key:"kurti"},
+  {name:"Three-piece", key:"threepiece"},
+  {name:"Fatua", key:"fatua"},
+  {name:"Casual Shirt", key:"shirt"},
+  {name:"Salwar", key:"salwar"},
+  {name:"Shawl", key:"shawl"},
+  {name:"Denim", key:"denim"},
+  {name:"Bags", key:"bags"},
+  {name:"Jewellery", key:"jewelry"},
+  {name:"Home Decor", key:"homedecor"}
+];
+document.getElementById('cats').innerHTML=cats.map(function(c){
+  return '<a class="cat" href="#new"><div data-img="'+c.key+'"></div><span>'+c.name+'</span></a>';
+}).join('');
+
+document.getElementById('depts2').innerHTML=[
+  {name:'Men', key:'men_dept'},
+  {name:'Women', key:'women_dept'},
+  {name:'Kids', key:'kids_dept'}
+].map(function(d){
+  return '<div class="dept" data-img="'+d.key+'"><h3>'+d.name+'</h3><ul>'+M[d.name].map(function(x){return '<li><a href="#">'+x+'</a></li>'}).join('')+'</ul><a class="go" href="#new">Shop '+d.name.toLowerCase()+'</a></div>';
+}).join('');
+
+var P=[
+  ["Cotton Punjabi","Men",1850,"New","punjabi"],
+  ["Jamdani Sharee","Women",4200,"","sharee"],
+  ["Block Print Kurti","Women",1450,"-15%","kurti",1700],
+  ["Wool Shawl","Winter",2300,"New","shawl"],
+  ["Flannel Shirt","Winter",1650,"","flannel"],
+  ["Printed Three-piece","Women",3100,"","threepiece"],
+  ["Checked Lungi","Men",750,"","lungi"],
+  ["Fatua Set","Kids",1100,"New","fatua"]
+];
+var tabs=["All","Men","Women","Kids","Winter"],cur="All",cart={},wish={};
+function money(n){return '৳'+n.toLocaleString('en-US')}
+
+function grid(){
+  document.getElementById('tabs').innerHTML=tabs.map(function(t){return '<button class="'+(t==cur?'on':'')+'" data-t="'+t+'">'+t+'</button>'}).join('');
+  document.getElementById('grid').innerHTML=P.map(function(p,i){
+    if(cur!="All"&&p[1]!=cur)return '';
+    return '<article class="prod"><div class="img" data-img="'+p[4]+'">'+(p[3]?'<span class="tag">'+p[3]+'</span>':'')+'<button class="heart'+(wish[i]?' on':'')+'" data-w="'+i+'" aria-label="Save to wishlist">♥</button><button class="qa" data-i="'+i+'">Quick add</button></div><h3>'+p[0]+'</h3><small>'+p[1]+'</small><b>'+money(p[2])+(p[5]?'<s>'+money(p[5])+'</s>':'')+'</b></article>';
+  }).join('');
+  hydrate();
+}
+
+function render(){
+  var k=Object.keys(cart),n=0,t=0;
+  var h=k.map(function(i){
+    var p=P[i],q=cart[i];n+=q;t+=q*p[2];
+    return '<div class="item"><i data-img="'+p[4]+'"></i><div><b>'+p[0]+'</b><br><small>'+q+' × '+money(p[2])+'</small></div><button class="x" data-r="'+i+'" aria-label="Remove '+p[0]+'">✕</button></div>';
+  }).join('');
+  document.getElementById('items').innerHTML=h||'<div class="empty">Your cart is empty. Add something from new and trending.</div>';
+  document.getElementById('count').textContent=n;
+  document.getElementById('total').textContent=money(t);
+  document.getElementById('wc').textContent=Object.keys(wish).length;
+  hydrate();
+}
+
+function open(o){
+  document.getElementById('drawer').classList.toggle('show',o);
+  document.getElementById('veil').classList.toggle('show',o);
+  document.getElementById('drawer').setAttribute('aria-hidden',!o);
+}
+
+document.addEventListener('click',function(e){
+  var t=e.target,d=t.dataset;
+  if(d.t){cur=d.t;grid()}
+  if(d.i!==undefined){cart[d.i]=(cart[d.i]||0)+1;render();open(true)}
+  if(d.r!==undefined){delete cart[d.r];render()}
+  if(d.w!==undefined){wish[d.w]?delete wish[d.w]:wish[d.w]=1;grid();render()}
+});
+
+document.getElementById('openCart').onclick=function(){open(true)};
+document.getElementById('closeCart').onclick=function(){open(false)};
+document.getElementById('veil').onclick=function(){open(false)};
+document.getElementById('checkout').onclick=function(){
+  if(!Object.keys(cart).length)return;
+  cart={};
+  render();
+  document.getElementById('items').innerHTML='<div class="empty">Order placed in this mockup. The live site opens the payment step here.</div>';
+};
+
+grid();
+render();
+
+var st=document.getElementById('stars');
+for(var i=1;i<=5;i++){
+  var b=document.createElement('button');
+  b.type='button';
+  b.textContent='★';
+  b.dataset.v=i;
+  b.setAttribute('aria-label',i+' stars');
+  st.appendChild(b);
+}
+st.onclick=function(e){
+  var v=+e.target.dataset.v;
+  if(!v)return;
+  [].forEach.call(st.children,function(c){c.classList.toggle('on',+c.dataset.v<=v)});
+};
+document.getElementById('fbform').onsubmit=function(e){
+  e.preventDefault();
+  document.getElementById('ok').textContent='Thank you. Your feedback was sent.';
+  e.target.reset();
+  [].forEach.call(st.children,function(c){c.classList.remove('on')});
+};
+
+var chat=document.getElementById('chat'),msgs=document.getElementById('msgs');
+document.getElementById('fab').onclick=function(){chat.classList.toggle('show')};
+var A=[
+  ["deliver","Inside Dhaka: 1 to 2 days. Outside Dhaka: 3 to 5 days."],
+  ["return","Unworn items can be returned within 7 days, and size exchanges are free."],
+  ["size","Each product page has a size chart. Tell me the item and your height and I will suggest a size."],
+  ["winter","Winter Special has shawls, flannel shirts and denim. Find it in the menu."]
+];
+
+function say(t,c){
+  var d=document.createElement('div');
+  d.className='m '+c;
+  d.textContent=t;
+  msgs.appendChild(d);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+
+function ask(q){
+  say(q,'u');
+  var l=q.toLowerCase(),r="I could not find that. Try asking about delivery, returns, sizes or winter items.";
+  A.forEach(function(a){if(l.indexOf(a[0])>-1)r=a[1]});
+  setTimeout(function(){say(r,'b')},350);
+}
+
+document.getElementById('cf').onsubmit=function(e){
+  e.preventDefault();
+  var i=document.getElementById('ci');
+  if(i.value.trim())ask(i.value.trim());
+  i.value='';
+};
+document.querySelector('.quick').onclick=function(e){
+  if(e.target.tagName=='BUTTON')ask(e.target.textContent);
+};
+</script>
+</body>
+</html>
